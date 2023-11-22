@@ -1,0 +1,66 @@
+1 ->  create user
+
+2 -> java : sudo apt install openjdk-8-jdk -y
+
+3 -> install openssh : sudo apt install openssh-server openssh-client -y
+	ssh keys : ssh-keygen -t rsa
+		   sudo cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+	           sudo chmod 640 ~/.ssh/authorized_keys
+	           
+4 -> get hadoop and extract
+
+5 -> sudo nano ~/.bashrc :
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+	export HADOOP_HOME=/usr/local/hadoop ***hadoop path***
+	export HADOOP_INSTALL=$HADOOP_HOME
+	export HADOOP_MAPRED_HOME=$HADOOP_HOME
+	export HADOOP_COMMON_HOME=$HADOOP_HOME
+	export HADOOP_HDFS_HOME=$HADOOP_HOME
+	export YARN_HOME=$HADOOP_HOME
+	export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+	export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+	export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+    activation : source ~/.bashrc
+
+hadoop-env.sh :     
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+core-site.xml : 
+	     <configuration>
+		 <property>
+				 <name>fs.defaultFS</name>
+				 <value>hdfs://localhost:9000</value>
+			 </property>
+	      </configuration>
+	      
+hdfs-site.xml : 
+	<configuration>        
+		<property>
+		        <name>dfs.replication</name>
+		        <value>1</value>
+		</property>        <property>
+		        <name>dfs.name.dir</name>
+		        <value>file:///home/hadoop/hadoopdata/hdfs/namenode</value>
+		</property>        <property>
+		        <name>dfs.data.dir</name>
+		        <value>file:///home/hadoop/hadoopdata/hdfs/datanode</value>
+		</property>
+	</configuration>
+	
+mapred-site.xml :
+	<configuration> 
+	<property> 
+	  <name>mapreduce.framework.name</name> 
+	  <value>yarn</value> 
+	</property> 
+	</configuration>   	
+
+yarn-site.xml : 
+	<configuration>
+		<property>
+		        <name>yarn.nodemanager.aux-services</name>
+		        <value>mapreduce_shuffle</value>
+		</property>
+	</configuration>
+
+6 -> format namenodes : hdfs namenode -format

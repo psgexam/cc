@@ -1,0 +1,29 @@
+1 -> install hadoop
+
+2 -> download and extract hbase
+
+3 -> hbase-env.sh :
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
+	
+4 -> ~/.bashrc : 
+	export HBASE_HOME=/home/hduser/hbase-1.1.1
+	export PATH= $PATH:$HBASE_HOME/bin
+
+5 -> hbase-site.xml : 
+
+		<property>
+			<name>hbase.rootdir</name>
+			<value>file:///home/hduser/HBASE/hbase</value>
+		</property>
+		<property>
+			<name>hbase.zookeeper.property.dataDir</name>
+			<value>/home/hduser/HBASE/zookeeper</value>
+		</property>
+
+7 -> add the ips in etc/hosts
+		127.0.0.1 localhost
+		
+8 -> start-hbase.sh
+	 hbase shell
+	 
+	

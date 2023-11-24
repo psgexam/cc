@@ -14,6 +14,6 @@ CMD [ 'java', 'sum']
 
 docker build -t sum-java .
 docker login -u <username>
-sudo docker tag sum-java <username>/getting-started
-docker push <username>/getting-started
-Docker pull <username>/getting-started
+sudo docker tag sum-java <username>/<repository_name>
+docker push <username>/<repository_name>
+Docker pull <username>/<repository_name>

@@ -1,0 +1,61 @@
+curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-455.0.0-linux-x86_64.tar.gz
+
+tar -xf google-cloud-cli-455.0.0-linux-x86_64.tar.gz
+
+./google-cloud-sdk/install.sh
+
+./google-cloud-sdk/bin/gcloud init
+
+
+create folder GAE(user defined)
+
+for python
+	gedit index.py
+	
+	//index.py
+	printf("hello world")
+	
+	gedit app.yaml
+	
+	//app.yaml
+	
+	runtime: python
+	api_version: 1
+	threadsafe: false
+
+	handlers:
+	 - url: /
+   	script: index.py
+   	
+for html
+	gedit index.html
+	
+	//index.html
+	<html>
+	<head>
+	<title>HELLO</title>
+	</head>
+	<body>
+	<h1>hello<h1>
+	</body>
+	</html>
+	
+	//app.yaml
+	runtime: python
+	api_version: 1
+	threadsafe: false
+
+	handlers:
+	 - url: /
+	   static_files: index.html
+	   upload: index.html
+
+
+if python2 error
+	sudo apt install python2
+	
+	
+	
+sudo python3 ./google-cloud-sdk/bin/dev_appserver.py ./GAE
+
+

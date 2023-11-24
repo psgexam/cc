@@ -1,0 +1,13 @@
+sudo apt-get install openssh-server
+
+ifconfig
+
+scp [path of file to send] root@[receiver's IP]:[target directory]
+
+scp /home/ctest/Videos/FunnyVideo.mp4 root@192.168.0.11:/home/virtualguy/Videos
+
+// additional 
+
+ssh-keygen -f "/home/ctest/.ssh/known_hosts" -R 192.168.0.11
+
+@reviever : sudo chmod 777 <file_path>

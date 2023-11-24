@@ -13,7 +13,7 @@ CMD [ 'java', 'sum']
 
 
 docker build -t sum-java .
-docker login --username=maryatdocker
-sudo docker tag sum-java username/getting-started
-docker push YOUR-USER-NAME/getting-started
-Docker pull username/getting-started
+docker login -u <username>
+sudo docker tag sum-java <username>/getting-started
+docker push <username>/getting-started
+Docker pull <username>/getting-started

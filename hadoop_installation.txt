@@ -1,4 +1,6 @@
 1 ->  create user
+	sudo adduser hadoop
+	sudo adduser hadoop sudo
 
 2 -> java : sudo apt install openjdk-8-jdk -y
 
@@ -8,6 +10,7 @@
 	           sudo chmod 640 ~/.ssh/authorized_keys
 	           
 4 -> get hadoop and extract
+	wget https://downloads.apache.org/hadoop/common/hadoop-3.3.2/hadoop-3.3.2.tar.gz
 
 5 -> sudo nano ~/.bashrc :
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64

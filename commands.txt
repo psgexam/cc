@@ -2,9 +2,9 @@ start-dfs.sh
 
 start-yarn.sh
 
-hdfs dfs -mkrir /wordcount
+hdfs dfs -mkdir /wordcount
 
-hdfs dfs -mkrir /wordcount/input
+hdfs dfs -mkdir /wordcount/input
 
 hdfs dfs -put input.txt /wordcount/input
 
@@ -17,4 +17,3 @@ javac -classpath ${HADOOP_CLASSPATH} -d classes WordCount.java
 jar -cvf WC.jar -C classes/ .
 
 hadoop jar WC.jar WordCount /wordcount/input/ /wordcount/output/
-

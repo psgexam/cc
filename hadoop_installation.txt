@@ -8,6 +8,7 @@
 	ssh keys : ssh-keygen -t rsa
 		   sudo cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 	           sudo chmod 640 ~/.ssh/authorized_keys
+		   ssh localhost
 	           
 4 -> get hadoop and extract
 	wget https://downloads.apache.org/hadoop/common/hadoop-3.3.2/hadoop-3.3.2.tar.gz

@@ -1,25 +1,41 @@
-start-dfs.sh
+word count (with java) : 
 
-start-yarn.sh
-
-hdfs dfs -mkdir /wordcount
-
-hdfs dfs -mkdir /wordcount/input
-
-hdfs dfs -put input.txt /wordcount/input
-
-export HADOOP_CLASSPATH=$(hadoop classpath)
-
-mkdir classes 
-
-javac -classpath ${HADOOP_CLASSPATH} -d classes WordCount.java
-
-jar -cvf WC.jar -C classes/ .
-
-hadoop jar WC.jar WordCount /wordcount/input/ /wordcount/output/
+  start-dfs.sh
+  
+  start-yarn.sh
+  
+  hdfs dfs -mkdir /wordcount
+  
+  hdfs dfs -mkdir /wordcount/input
+  
+  hdfs dfs -put input.txt /wordcount/input
+  
+  export HADOOP_CLASSPATH=$(hadoop classpath)
+  
+  mkdir classes 
+  
+  javac -classpath ${HADOOP_CLASSPATH} -d classes WordCount.java
+  
+  jar -cvf WC.jar -C classes/ .
+  
+  hadoop jar WC.jar WordCount /wordcount/input/ /wordcount/output/
 
 
 
 
 calculate pi : hadoop jar hadoop*/share/hadoop/mapreduce/hadoop-mapreduce-examples*.jar pi 2 100
-word count : hadoop jar hadoop*/share/hadoop/mapreduce/hadoop-mapreduce-examples*.jar wordcount /wordcount/input /output
+
+
+word count (inbuilt) : 
+
+  start-dfs.sh
+  
+  start-yarn.sh
+  
+  hdfs dfs -mkdir /wordcount
+  
+  hdfs dfs -mkdir /wordcount/input
+  
+  hdfs dfs -put input.txt /wordcount/input
+  
+  hadoop jar hadoop*/share/hadoop/mapreduce/hadoop-mapreduce-examples*.jar wordcount /wordcount/input /output

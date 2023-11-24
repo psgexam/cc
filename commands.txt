@@ -22,3 +22,4 @@ hadoop jar WC.jar WordCount /wordcount/input/ /wordcount/output/
 
 
 calculate pi : hadoop jar hadoop*/share/hadoop/mapreduce/hadoop-mapreduce-examples*.jar pi 2 100
+word count : hadoop jar hadoop*/share/hadoop/mapreduce/hadoop-mapreduce-examples*.jar wordcount /wordcount/input /output

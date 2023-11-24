@@ -1,0 +1,19 @@
+sudo apt-get update
+sudo apt install docker.io
+sudo snap install docker
+Javac sum.java
+Java sum
+
+gedit Dockerfile
+FROM openjdk:11-jdk-slim
+WORKDIR /docktest
+COPY sum.java .
+RUN javac sum.java
+CMD [ 'java', 'sum']
+
+
+docker build -t sum-java .
+docker login --username=maryatdocker
+sudo docker tag sum-java username/getting-started
+docker push YOUR-USER-NAME/getting-started
+Docker pull username/getting-started

@@ -1,10 +1,20 @@
+start-dfs.sh
+
+start-yarn.sh
+
+hdfs dfs -mkrir /wordcount
+
+hdfs dfs -mkrir /wordcount/input
+
+hdfs dfs -put input.txt /wordcount/input
+
 export HADOOP_CLASSPATH=$(hadoop classpath)
 
-hadoop fs -put '/home/hadoop/Documents/matrix_mult/input.txt' /mat/input
+mkdir classes 
 
-javac -classpath ${HADOOP_CLASSPATH} -d '/home/hadoop/Documents/matrix_mult/classes' '/home/hadoop/Documents/matrix_mult/MatrixMult.java'
+javac -classpath ${HADOOP_CLASSPATH} -d classes WordCount.java
 
-jar -cvf matrixMult.jar -C classes/ .
+jar -cvf WC.jar -C classes/ .
 
-hadoop jar matrixMult.jar MatrixMult /matrix/input/ /matrix/output/
+hadoop jar WC.jar WordCount /wordcount/input/ /wordcount/output/
 

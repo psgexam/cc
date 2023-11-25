@@ -11,6 +11,15 @@ COPY sum.java .
 RUN javac sum.java
 CMD [ "java", "sum"]
 
+gedit sum.java
+import java.*;
+
+class sum{
+public static void main(String argv[]){
+  System.out.println("Hello World");
+}
+}
+
 
 docker build -t sum-java .
 docker login -u <username>

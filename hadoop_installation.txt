@@ -36,7 +36,9 @@ core-site.xml :
 				 <value>hdfs://localhost:9000</value>
 			 </property>
 	      </configuration>
-	      
+
+         mkdir -p /hadoopdata/hdfs/datanode
+         mkdir -p /hadoopdata/hdfs/namenode
 hdfs-site.xml : 
 	<configuration>        
 		<property>

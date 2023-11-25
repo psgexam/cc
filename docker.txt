@@ -9,7 +9,7 @@ FROM openjdk:11-jdk-slim
 WORKDIR /docktest
 COPY sum.java .
 RUN javac sum.java
-CMD [ 'java', 'sum']
+CMD [ "java", "sum"]
 
 
 docker build -t sum-java .
